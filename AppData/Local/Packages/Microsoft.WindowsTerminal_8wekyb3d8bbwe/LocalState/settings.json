@@ -24,14 +24,14 @@
             "command": "unbound",
             "keys": "win+sc(41)"
         },
-        {
-            "command": 
-            {
-                "action": "globalSummon"
-            },
-            "id": "User.globalSummon.51A3D78C",
-            "keys": "`"
-        },
+        // {
+        //     "command": 
+        //     {
+        //         "action": "globalSummon"
+        //     },
+        //     "id": "User.globalSummon.51A3D78C",
+        //     "keys": "`"
+        // },
         {
             "command": "closePane",
             "id": "User.closePane",
