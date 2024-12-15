@@ -140,6 +140,8 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
+  - name: '`'
+    display_name: "[nf-oct-terminal]"
   - name: '1'
   - name: '2'
   - name: '3'
@@ -151,6 +153,23 @@ workspaces:
   - name: '9'
 
 window_rules:
+  - commands: ["move --workspace `"]
+    match:
+      - window_process: { regex: "WindowsTerminal" }
+
+  - commands: ["move --workspace 1"]
+    match:
+      - window_process: { regex: "msedge" }
+
+  - commands: ["move --workspace 2"]
+    match:
+      - window_process: { regex: "msedge" }
+        window_title: { regex: ".*\\[InPrivate\\].*" }
+  
+  - commands: ["move --workspace 3"]
+    match:
+      - window_process: { regex: "Code" }
+    
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -233,7 +252,7 @@ keybindings:
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ['wm-cycle-focus']
-    bindings: ['alt+space']
+    bindings: ['ctrl+alt+space']
 
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']
@@ -284,6 +303,8 @@ keybindings:
     bindings: ['alt+d']
 
   # Change focus to a workspace defined in `workspaces` config.
+  - commands: ['focus --workspace `']
+    bindings: ['alt+`']
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
   - commands: ['focus --workspace 2']

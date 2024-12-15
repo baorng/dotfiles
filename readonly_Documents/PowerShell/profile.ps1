@@ -1,3 +1,7 @@
+#region zoxide initalize
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+#endregion
+
 #region opam initialize
 function opam {
     # Write-Host "Initializing opam..."
