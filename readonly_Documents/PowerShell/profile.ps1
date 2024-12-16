@@ -1,15 +1,12 @@
-#region zoxide initalize
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+#region alias set
+Set-Alias cat bat
+Set-Alias ls eza
+Set-Alias vim nvim
+Set-Alias find fd
 #endregion
 
-#region opam initialize
-function opam {
-    # Write-Host "Initializing opam..."
-    Remove-Item function:opam -ErrorAction SilentlyContinue
-    (& opam env) -split '\r?\n' | ForEach-Object { Invoke-Expression $_ }
-
-    & opam @args
-}
+#region zoxide initalize
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
 #endregion
 
 #region conda initialize
