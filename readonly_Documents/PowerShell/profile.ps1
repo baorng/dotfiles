@@ -17,7 +17,7 @@ function Initialize-Conda {
         # Initialize Conda shell integration
         Write-Host "Initializing Conda..."
         # & $condaPath "config" "--set" "auto_activate_base" "false"
-        (& $condaPath "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+        (& $condaPath "shell.powershell" "hook") | Out-String | Where-Object{$_} | Invoke-Expression
 
         # Remove the conda and mamba function overrides
         Remove-Item function:conda -ErrorAction SilentlyContinue

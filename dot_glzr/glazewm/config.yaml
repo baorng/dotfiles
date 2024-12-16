@@ -169,6 +169,10 @@ window_rules:
   - commands: ["move --workspace 3"]
     match:
       - window_process: { regex: "Code" }
+
+  - commands: ["move --workspace 5"]
+    match:
+      - window_title: { regex: "Outlook" }
     
   - commands: ['ignore']
     match:
