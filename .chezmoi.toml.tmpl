@@ -1,2 +1,7 @@
+{{ if eq .chezmoi.os "windows" -}}
 [cd]
     command = "pwsh"
+{{ else if eq .chezmoi.os "linux" -}}
+[cd]
+    command = "fish"
+{{ end -}}
