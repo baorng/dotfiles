@@ -1,8 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:371
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dvopgwhX1aLja/agent\x2e370
-SETUVAR SSH_KEYS_TO_AUTOLOAD:/home/bao/\x2essh/id_ed25519_bao_personal
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
