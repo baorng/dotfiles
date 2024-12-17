@@ -5,6 +5,19 @@ Set-Alias vim nvim
 Set-Alias find fd
 #endregion
 
+#region yazi initialize
+$Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
+function y {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}
+#endregion
+
 #region zoxide initalize
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 #endregion
