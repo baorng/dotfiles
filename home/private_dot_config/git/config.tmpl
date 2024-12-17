@@ -1,0 +1,17 @@
+[user]
+	email = baorng@gmail.com
+	name = baobaybong
+[init]
+	defaultBranch = main
+
+{{ if eq .chezmoi.os "windows" -}}
+[core]
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[core]
+	sshCommand = ssh.exe
+{{   end -}}
+{{ end -}}

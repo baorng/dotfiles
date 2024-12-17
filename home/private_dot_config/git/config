@@ -1,7 +1,0 @@
-[user]
-	email = baorng@gmail.com
-	name = baobaybong
-[init]
-	defaultBranch = main
-[core]
-	sshCommand = ssh.exe
