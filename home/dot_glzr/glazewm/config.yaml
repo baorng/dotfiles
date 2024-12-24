@@ -151,6 +151,7 @@ workspaces:
   - name: '7'
   - name: '8'
   - name: '9'
+  - name: '0'
 
 window_rules:
   - commands: ["move --workspace `"]
@@ -170,9 +171,13 @@ window_rules:
     match:
       - window_process: { regex: "Code" }
 
-  - commands: ["move --workspace 5"]
+  - commands: ["move --workspace 9"]
     match:
       - window_title: { regex: "Outlook" }
+  
+  - commands: ["move --workspace 0"]
+    match:
+      - window_process: { regex: "Discord|Vesktop|Telegram" }
     
   - commands: ['ignore']
     match:
@@ -329,6 +334,8 @@ keybindings:
     bindings: ['alt+8']
   - commands: ['focus --workspace 9']
     bindings: ['alt+9']
+  - commands: ['focus --workspace 0']
+    bindings: ['alt+0']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -360,3 +367,5 @@ keybindings:
     bindings: ['alt+shift+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['alt+shift+9']
+  - commands: ['move --workspace 0', 'focus --workspace 0']
+    bindings: ['alt+shift+0']
