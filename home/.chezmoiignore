@@ -7,3 +7,5 @@ Documents
 {{- if ne .chezmoi.os "linux" }}
 .config/fish
 {{- end }}
+
+.config/fish/fish_variables

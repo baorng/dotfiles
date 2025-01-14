@@ -4,7 +4,14 @@ else
     -- ordinary Neovim
 end
 
-vim.opt.clipboard:append("unnamedplus")
+vim.cmd("colorscheme sorbet")
+
+-- Lazy load system clipboard syncing
+-- vim.opt.clipboard:append("unnamedplus")
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end)
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
