@@ -108,7 +108,8 @@ window_effects:
   other_windows:
     border:
       enabled: true
-      color: '#a1a1a1'
+      # color: '#a1a1a1'
+      color: *overlay2
     hide_title_bar:
       enabled: false
     corner_style:
@@ -169,7 +170,7 @@ window_rules:
   
   - commands: ["move --workspace 3"]
     match:
-      - window_process: { regex: "Code" }
+      - window_process: { regex: "Code|zed" }
 
   - commands: ["move --workspace 9"]
     match:
@@ -196,7 +197,14 @@ window_rules:
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
       
-      - window_process: { equals: 'FluentSearch'}
+      # Temporary fixes
+      - window_process: { equals: 'FluentSearch' }
+
+  # Temporary fix for wslg
+  # - commands: ['set-floating']
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: "msrdc" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -349,6 +357,8 @@ keybindings:
     bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ['move --workspace `', 'focus --workspace `']
+    bindings: ['alt+shift+`']
   - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
   - commands: ['move --workspace 2', 'focus --workspace 2']
