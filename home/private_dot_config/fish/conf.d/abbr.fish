@@ -1,4 +1,8 @@
-abbr -a cat 'bat'
+# Check if bat is available and set abbreviation
+if type -q bat
+    abbr -a cat 'bat'
+end
+
 abbr -a gs 'git status'
 
 # Competitive programming abbreviations

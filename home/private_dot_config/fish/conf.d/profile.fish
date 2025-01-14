@@ -9,3 +9,4 @@ set -gx VISUAL code
 
 # Paths
 fish_add_path -g ~/.local/bin
+
