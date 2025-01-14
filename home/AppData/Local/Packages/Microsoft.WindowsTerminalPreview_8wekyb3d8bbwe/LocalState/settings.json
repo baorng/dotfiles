@@ -46,16 +46,16 @@
     "keybindings": 
     [
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
+            "id": null,
+            "keys": "ctrl+shift+w"
         },
         {
             "id": "User.find",
             "keys": "ctrl+shift+f"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": null,
@@ -66,12 +66,12 @@
             "keys": "win+sc(41)"
         },
         {
-            "id": "User.newTab.5DEADB41",
-            "keys": "ctrl+t"
-        },
-        {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
+        },
+        {
+            "id": "User.newTab.5DEADB41",
+            "keys": "ctrl+t"
         },
         {
             "id": "User.closePane",
@@ -94,6 +94,7 @@
         {
             "bellStyle": "none",
             "colorScheme": "Catppuccin Macchiato",
+            "cursorShape": "bar",
             "font": 
             {
                 "face": "CaskaydiaCove Nerd Font Mono"
