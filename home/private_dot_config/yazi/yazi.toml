@@ -1,2 +1,16 @@
 [manager]
 show_hidden = true
+
+[opener]
+open = [
+    # { run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
+    { run = 'explorer.exe $(wslpath -w "$1") || true', desc = "Open (WSL)", for = "linux" },
+    { run = 'open "$@"',                               desc = "Open", for = "macos" },
+    { run = 'start "" "%1"', orphan = true,            desc = "Open", for = "windows" },
+]
+# reveal = [
+#     { run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
+#     { run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
+#     { run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+#     { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+# ]
