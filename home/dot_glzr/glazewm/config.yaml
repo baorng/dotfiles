@@ -174,7 +174,7 @@ window_rules:
 
   - commands: ["move --workspace 9"]
     match:
-      - window_title: { regex: "Outlook" }
+      - window_process: { regex: "olk" } # Outlook
   
   - commands: ["move --workspace 0"]
     match:

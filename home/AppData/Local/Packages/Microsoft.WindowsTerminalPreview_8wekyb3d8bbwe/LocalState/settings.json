@@ -16,6 +16,10 @@
             "id": "User.closePane"
         },
         {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
             "command": 
             {
                 "action": "newTab"
@@ -23,8 +27,8 @@
             "id": "User.newTab.5DEADB41"
         },
         {
-            "command": "paste",
-            "id": "User.paste"
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": 
@@ -34,20 +38,16 @@
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
+    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
     "keybindings": 
     [
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
+            "id": "Terminal.ToggleFocusMode",
+            "keys": "ctrl+`"
         },
         {
             "id": "User.find",
@@ -59,6 +59,10 @@
         },
         {
             "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
             "keys": "ctrl+shift+t"
         },
         {
@@ -66,12 +70,12 @@
             "keys": "win+sc(41)"
         },
         {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+t"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
         },
         {
             "id": "User.closePane",
@@ -82,6 +86,7 @@
             "keys": "alt+shift+d"
         }
     ],
+    "launchMode": "focus",
     "newTabMenu": 
     [
         {
@@ -99,6 +104,7 @@
             {
                 "face": "CaskaydiaCove Nerd Font Mono"
             },
+            "opacity": 80,
             "useAcrylic": true
         },
         "list": 
@@ -118,7 +124,7 @@
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             },
             {
@@ -129,7 +135,7 @@
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             },
@@ -141,7 +147,7 @@
             },
             {
                 "guid": "{acbafd15-cbbb-5bb3-8a61-bed446ff4b83}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Ubuntu 24.04 LTS",
                 "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
             },
@@ -159,7 +165,7 @@
             },
             {
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Git Bash",
                 "source": "Git"
             },
