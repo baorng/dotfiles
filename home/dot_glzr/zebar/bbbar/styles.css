@@ -142,7 +142,7 @@ body,
 
 /* ICONS */
 i {
-  margin-right: 7px;
+  margin-right: 6px;
 }
 
 .logo {
@@ -170,16 +170,19 @@ i {
   margin: 0;
 }
 
+.media {
+  max-height: 29px; /* Hard-code to grow only to the app class, 100% doesn't work? */
+}
+
 .media i {
   color: var(--green);
 }
 
-.weather {
-  margin-bottom: 2px;
-}
 .weather i {
   color: var(--cyan);
   font-size: 16px;
+  position: relative;
+  top: 1px;
 }
 
 .cpu i {

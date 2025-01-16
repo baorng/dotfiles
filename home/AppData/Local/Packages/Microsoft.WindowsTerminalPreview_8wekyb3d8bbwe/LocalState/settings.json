@@ -40,6 +40,7 @@
             "id": "User.splitPane.A6751878"
         }
     ],
+    "confirmCloseAllTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
@@ -50,16 +51,16 @@
             "keys": "ctrl+`"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": null,
+            "keys": "ctrl+shift+w"
         },
         {
             "id": "User.paste",
             "keys": "ctrl+v"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": null,
@@ -70,12 +71,12 @@
             "keys": "win+sc(41)"
         },
         {
-            "id": "User.newTab.5DEADB41",
-            "keys": "ctrl+t"
-        },
-        {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
+        },
+        {
+            "id": "User.newTab.5DEADB41",
+            "keys": "ctrl+t"
         },
         {
             "id": "User.closePane",

@@ -204,7 +204,7 @@
                         {output.media && output.media.session && (
                             <div className="media">
                                 <i className="nf nf-md-television_play"></i>
-                                {output.media.session.title?.substring(0, 30)} - {output.media.session.artist}
+                                {output.media.session.title?.substring(0, 30)}{output.media.session.artist ? ` - ${output.media.session.artist}` : ''}
                             </div>
                         )}
 

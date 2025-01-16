@@ -162,6 +162,7 @@ window_rules:
   - commands: ["move --workspace 1"]
     match:
       - window_process: { regex: "msedge" }
+        window_title: { regex: "Edge"}
 
   - commands: ["move --workspace 2"]
     match:
@@ -224,14 +225,15 @@ binding_modes:
 
 keybindings:
   # Shift focus in a given direction.
+  # Using LAlt only to allow mapping RAlt HJKL to Arrow keys
   - commands: ['focus --direction left']
-    bindings: ['alt+h', 'alt+left']
+    bindings: ['lalt+h', 'alt+left']
   - commands: ['focus --direction right']
-    bindings: ['alt+l', 'alt+right']
+    bindings: ['lalt+l', 'alt+right']
   - commands: ['focus --direction up']
-    bindings: ['alt+k', 'alt+up']
+    bindings: ['lalt+k', 'alt+up']
   - commands: ['focus --direction down']
-    bindings: ['alt+j', 'alt+down']
+    bindings: ['lalt+j', 'alt+down']
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
