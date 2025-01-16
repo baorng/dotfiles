@@ -4,6 +4,11 @@ else
     -- ordinary Neovim
 end
 
+-- Reset terminal cursor on leave
+vim.cmd [[
+  autocmd VimLeave * set guicursor=a:ver25-blinkon1
+]]
+
 vim.cmd("colorscheme sorbet")
 
 -- Lazy load system clipboard syncing

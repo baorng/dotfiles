@@ -3,6 +3,10 @@ if type -q bat
     abbr -a cat 'bat'
 end
 
+if type -q nvim
+    abbr -a vim 'nvim'
+end
+
 abbr -a gs 'git status'
 
 # Competitive programming abbreviations
