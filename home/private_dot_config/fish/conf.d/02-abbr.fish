@@ -18,6 +18,7 @@ abbr -a ga 'git add'
 abbr -a gc 'git commit'
 abbr -a gb 'git branch'
 abbr -a gco 'git checkout'
+abbr -a gr 'git rev-parse --show-toplevel'
 
 # Competitive programming abbreviations
 # g++-11 compiles pre-compiled stdc++.h the fastest
