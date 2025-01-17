@@ -45,6 +45,7 @@ body,
   align-items: center;
   height: 100%;
   padding: 4px 1.5vw;
+  padding-top: 2px; /* Somehow this is needed to make it look right (equal) on my laptop screen*/
 }
 
 .left,
@@ -171,6 +172,7 @@ i {
 }
 
 .media {
+  padding-top: 1px;
   max-height: 29px; /* Hard-code to grow only to the app class, 100% doesn't work? */
 }
 
