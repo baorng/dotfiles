@@ -1,0 +1,26 @@
+theme = "catppuccin_macchiato_transparent"
+
+[editor]
+true-color = true
+
+# Show currently open buffers, only when more than one exists.
+bufferline = "multiple"
+
+cursor-shape = {insert = "bar"}
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+
+[keys.normal]
+"A-e" = "goto_previous_buffer"
+"A-r" = "goto_next_buffer"
+"A-w" = ":buffer-close"
+
+g = { a = "code_action" } # Maps `ga` to show possible code actions
+"ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
+# "A-x" = "@x<A-d>" # Maps Alt-x to a macro selecting the whole line and deleting it without yanking it
+
+[keys.insert]
+
+[keys.select]

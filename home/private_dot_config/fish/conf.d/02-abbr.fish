@@ -24,3 +24,9 @@ abbr -a gr 'git rev-parse --show-toplevel'
 # g++-11 compiles pre-compiled stdc++.h the fastest
 abbr -a c --set-cursor 'g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %.cpp'
 abbr -a a './a'
+
+# ... for ../..
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr -a dotdot --regex '^\.\.+$' --function multicd
