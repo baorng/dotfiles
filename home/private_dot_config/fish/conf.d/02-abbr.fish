@@ -1,15 +1,16 @@
 # Check if bat is available and set abbreviation
 if type -q bat
-    abbr -a cat 'bat'
+    abbr -a cat bat
 end
 
 if type -q eza
-    abbr -a ls 'eza'
+    abbr -a ls eza
     abbr -a la 'eza -lah --group-directories-first --icons --git'
+    abbr -a las 'eza -lah --group-directories-first --icons --git --total-size'
 end
 
 if type -q nvim
-    abbr -a vim 'nvim'
+    abbr -a vim nvim
 end
 
 abbr -a gs 'git status'
