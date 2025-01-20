@@ -225,15 +225,19 @@ binding_modes:
 
 keybindings:
   # Shift focus in a given direction.
-  # Using LAlt only to allow mapping RAlt HJKL to Arrow keys
+  # Give control of Alt+Arrows to other apps
   - commands: ['focus --direction left']
-    bindings: ['lalt+h', 'alt+left']
+    bindings: ['alt+h']
+    # bindings: ['alt+h', 'alt+left']
   - commands: ['focus --direction right']
-    bindings: ['lalt+l', 'alt+right']
+    bindings: ['alt+l']
+    # bindings: ['alt+l', 'alt+right']
   - commands: ['focus --direction up']
-    bindings: ['lalt+k', 'alt+up']
+    bindings: ['alt+k']
+    # bindings: ['alt+k', 'alt+up']
   - commands: ['focus --direction down']
-    bindings: ['lalt+j', 'alt+down']
+    bindings: ['alt+j']
+    # bindings: ['alt+j', 'alt+down']
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
@@ -258,8 +262,9 @@ keybindings:
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+r']
+  # No, I don't use this
+  # - commands: ['wm-enable-binding-mode --name resize']
+  #   bindings: ['alt+r']
 
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.

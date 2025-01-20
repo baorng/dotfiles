@@ -43,7 +43,7 @@
     "confirmCloseAllTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+    "defaultProfile": "{6f32c06c-e491-53b3-8c59-f9bd5f817456}",
     "keybindings": 
     [
         {
@@ -51,16 +51,16 @@
             "keys": "ctrl+`"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.paste",
             "keys": "ctrl+v"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "User.closePane",
+            "keys": "ctrl+shift+w"
         },
         {
             "id": null,
@@ -71,16 +71,12 @@
             "keys": "win+sc(41)"
         },
         {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+t"
         },
         {
-            "id": "User.closePane",
-            "keys": "ctrl+w"
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
         },
         {
             "id": "User.splitPane.A6751878",
@@ -106,6 +102,7 @@
                 "face": "CaskaydiaCove Nerd Font Mono"
             },
             "opacity": 80,
+            "scrollbarState": "hidden",
             "useAcrylic": true
         },
         "list": 
@@ -129,6 +126,12 @@
                 "name": "Command Prompt"
             },
             {
+                "guid": "{6f32c06c-e491-53b3-8c59-f9bd5f817456}",
+                "hidden": false,
+                "name": "Ubuntu-main",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
                 "name": "Ubuntu",
@@ -147,24 +150,6 @@
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
-                "guid": "{acbafd15-cbbb-5bb3-8a61-bed446ff4b83}",
-                "hidden": true,
-                "name": "Ubuntu 24.04 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
-                "hidden": true,
-                "name": "Ubuntu-24.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
-                "hidden": false,
-                "name": "Ubuntu 24.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
-            },
-            {
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": true,
                 "name": "Git Bash",
@@ -174,6 +159,18 @@
                 "guid": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
                 "hidden": false,
                 "name": "openSUSE-Tumbleweed",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{378168b4-23c5-514f-b6d7-729f9ff6ffc5}",
+                "hidden": false,
+                "name": "Ubuntu-scratch",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{7f7ec158-6e8a-5277-9304-d8781942eb06}",
+                "hidden": false,
+                "name": "Ubuntu-scratch2",
                 "source": "Windows.Terminal.Wsl"
             }
         ]
