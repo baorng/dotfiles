@@ -1,8 +1,16 @@
 #region alias set
-Set-Alias cat bat
-Set-Alias ls eza
-Set-Alias vim nvim
-Set-Alias find fd
+if (Get-Command -Name bat -ErrorAction SilentlyContinue) {
+    Set-Alias cat bat
+}
+if (Get-Command -Name eza -ErrorAction SilentlyContinue) {
+    Set-Alias ls eza
+}
+if (Get-Command -Name nvim -ErrorAction SilentlyContinue) {
+    Set-Alias vim nvim
+}
+if (Get-Command -Name fd -ErrorAction SilentlyContinue) {
+    Set-Alias find fd
+}
 #endregion
 
 #region yazi initialize
@@ -24,30 +32,18 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-function Initialize-Conda {
-    $condaPath = "C:\Users\Ngu\miniforge3\Scripts\conda.exe"
-    if (Test-Path $condaPath) {
-        # Initialize Conda shell integration
-        Write-Host "Initializing Conda..."
-        # & $condaPath "config" "--set" "auto_activate_base" "false"
-        (& $condaPath "shell.powershell" "hook") | Out-String | Where-Object{$_} | Invoke-Expression
+If (Test-Path "C:\Users\Ngu\miniforge3\Scripts\conda.exe") {
+    # (& "C:\Users\Ngu\miniforge3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+    $Env:CONDA_EXE = "C:\Users\Ngu\miniforge3\Scripts\conda.exe"
+    $Env:_CE_M = $null
+    $Env:_CE_CONDA = $null
+    $Env:_CONDA_ROOT = "C:\Users\Ngu\miniforge3"
+    $Env:_CONDA_EXE = "C:\Users\Ngu\miniforge3\Scripts\conda.exe"
+    $CondaModuleArgs = @{ChangePs1 = $True}
+    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
 
-        # Remove the conda and mamba function overrides
-        Remove-Item function:conda -ErrorAction SilentlyContinue
-        Remove-Item function:mamba -ErrorAction SilentlyContinue
-    } else {
-        Write-Host "Conda not found at $condaPath"
-    }
-}
+    # conda activate base
 
-function conda {
-    Initialize-Conda
-    & conda @args
-}
-
-function mamba {
-    Initialize-Conda
-    & mamba @args
+    Remove-Variable CondaModuleArgs
 }
 #endregion
-
