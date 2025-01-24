@@ -77,7 +77,7 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '50px'
+    top: '10px'
     right: '10px'
     bottom: '10px'
     left: '10px'
@@ -206,6 +206,9 @@ window_rules:
   - commands: ['ignore']
     match:
       - window_process: { equals: "msrdc" }
+  - commands: ['set-floating']
+    match:
+      - window_process: { equals: "Notepad" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
