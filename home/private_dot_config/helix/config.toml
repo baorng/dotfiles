@@ -18,15 +18,23 @@ cursor-line = "hint"
 [keys.normal]
 "A-e" = "goto_previous_buffer"
 "A-r" = "goto_next_buffer"
-"A-w" = ":buffer-close"
+# "A-w" = ":buffer-close"
 
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
 # "A-x" = "@x<A-d>" # Maps Alt-x to a macro selecting the whole line and deleting it without yanking it
 
 # Insert template for cp, might want to change to use env var instead of hard coded path
-"#" = { i = { n = "@:insert-output cat /mnt/d/cp/templates/template.cpp<ret>s\\$<ret>xc"}}
+"#" = { i = { n = "@:insert-output cat /mnt/d/cp/templates/template.cpp<ret>s\\$<ret>x<A-c>"}}
+C-b = '''@<esc><esc>
+  :write<ret>
+  :sh /usr/bin/time -f "%%e" g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %{buffer_name}<ret>
+'''
 
 [keys.insert]
+C-b = '''@<esc><esc>
+  :write<ret>
+  :sh /usr/bin/time -f "%%e" g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %{buffer_name}<ret>
+'''
 
 [keys.select]
 
