@@ -1,0 +1,82 @@
+// Place your key bindings in this file to override the defaults
+[
+    // Ctrl-P/N shortcuts
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    // Navigating within a group
+    {
+        "key": "alt+e",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "alt+r",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "alt+shift+,",
+        "command": "workbench.action.moveEditorLeftInGroup"
+    },
+    {
+        "key": "alt+shift+.",
+        "command": "workbench.action.moveEditorRightInGroup"
+    },
+    // Navigating between groups
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    // Competitive programming compile with fish abbr
+    {
+        "key": "alt+b",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.focus",
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": { "text": "time c '${file}'\n" },
+                },
+            ]
+        },
+    }
+]
