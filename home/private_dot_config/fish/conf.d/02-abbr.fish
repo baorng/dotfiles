@@ -23,7 +23,7 @@ abbr -a gr 'git rev-parse --show-toplevel'
 
 # Competitive programming abbreviations
 # g++-11 compiles pre-compiled stdc++.h the fastest
-abbr -a c --set-cursor 'g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %.cpp'
+abbr -a c 'g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a'
 abbr -a a './a'
 
 # ... for ../..

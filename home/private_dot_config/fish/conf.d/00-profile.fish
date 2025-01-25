@@ -28,5 +28,5 @@ end
 # doesn't work when helix is invoked through other commands, i.e. git
 function hx
     command hx $argv
-    printf '\033[0 q'
+    printf '\033[5 q'
 end

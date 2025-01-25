@@ -16,8 +16,8 @@ character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 cursor-line = "hint"
 
 [keys.normal]
-"A-e" = "goto_previous_buffer"
-"A-r" = "goto_next_buffer"
+A-e = "goto_previous_buffer"
+A-r = "goto_next_buffer"
 # "A-w" = ":buffer-close"
 
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
@@ -25,13 +25,13 @@ cursor-line = "hint"
 
 # Insert template for cp, might want to change to use env var instead of hard coded path
 "#" = { i = { n = "@:insert-output cat /mnt/d/cp/templates/template.cpp<ret>s\\$<ret>x<A-c>"}}
-C-b = '''@<esc><esc>
+A-b = '''@<esc><esc>
   :write<ret>
   :sh /usr/bin/time -f "%%e" g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %{buffer_name}<ret>
 '''
 
 [keys.insert]
-C-b = '''@<esc><esc>
+A-b = '''@<esc><esc>
   :write<ret>
   :sh /usr/bin/time -f "%%e" g++-11 -std=c++20 -O2 -Wall -Wextra -Wshadow -DLOCAL -o a %{buffer_name}<ret>
 '''
