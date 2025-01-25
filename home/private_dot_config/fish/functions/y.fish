@@ -8,5 +8,5 @@ function y
     rm -f -- "$tmp"
 
     # In case some program forgets to reset cursor shape
-    printf '\033[0 q'
+    printf '\033[5 q'
 end
