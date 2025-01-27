@@ -74,7 +74,7 @@
                 "workbench.action.terminal.focus",
                 {
                     "command": "workbench.action.terminal.sendSequence",
-                    "args": { "text": "time c '${file}'\n" },
+                    "args": { "text": "c '${file}'\n" },
                 },
             ]
         },

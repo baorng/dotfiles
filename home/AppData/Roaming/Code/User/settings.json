@@ -11,6 +11,12 @@
     ],
     "editor.fontFamily": "'CaskaydiaCove Nerd Font Mono', 'Cascadia Code'",
     "editor.fontWeight": 350,
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "statusBarItem.remoteBackground": "#181818",
+        "statusBarItem.remoteForeground": "#cccccc"
+    },
+    "workbench.activityBar.location": "top",
     "telemetry.telemetryLevel": "off",
 
     "C_Cpp.default.cppStandard": "c++20",
