@@ -9,7 +9,7 @@
         // Send quick open's keyboard shortcut to the shell
         "-workbench.action.quickOpen",
     ],
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font Mono', 'Cascadia Code'",
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code'",
     "editor.fontWeight": 350,
     "workbench.startupEditor": "none",
     "workbench.colorCustomizations": {
