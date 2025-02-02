@@ -38,7 +38,7 @@ general:
   shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
 
   # Commands to run after the WM config is reloaded.
-  config_reload_commands: []
+  config_reload_commands: ['shell-exec %userprofile%/.glzr/glazewm/restart-zebar.bat']
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
