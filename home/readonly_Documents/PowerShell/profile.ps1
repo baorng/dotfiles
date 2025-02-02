@@ -1,5 +1,6 @@
-#region XDG Base Dir set
+#region env set
 $Env:XDG_CONFIG_HOME = "$HOME\.config"
+$Env:EDITOR = "hx"
 #endregion
 
 #region alias set
@@ -15,6 +16,10 @@ if (Get-Command -Name nvim -ErrorAction SilentlyContinue) {
 if (Get-Command -Name fd -ErrorAction SilentlyContinue) {
     Set-Alias find fd
 }
+#endregion
+
+#region helix windows symlink
+#sudo pwsh -c "New-Item -ItemType SymbolicLink -Path $env:APPDATA\helix -Target $HOME\.config\helix"
 #endregion
 
 #region yazi initialize
