@@ -28,10 +28,21 @@
     },
 
     "vim.easymotion": true,
-    "vim.useSystemClipboard": true,
+    // "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": false,
     // "vim.hlsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
     "vim.leader": "<space>",
+    "vim.handleKeys": {
+        // "<C-f>": false,
+        // "<C-i>": false,
+        // "<C-w>": false,
+        // "<C-b>": false,
+        // "<C-p>": false,
+        "<C-u>": true,
+        "<C-d>": true
+    },
     "vim.normalModeKeyBindingsNonRecursive": [
         // Jump to a two-character label like in Helix
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ]},
@@ -50,19 +61,20 @@
         { "before": [ "<CR>" ], "after": [ "o", "<Esc>" ] },
         // { "before": [ "<leader>", "/" ], "commands": [ ":noh" ] },
         // { "before": [ "ctrl+p" ] , "commands": [ "workbench.action.quickOpen" ],  "silent": true },
+
+        // Use system clipboard on leader yank/paste
+        { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
+        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "Y" ] },
+        { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
+        { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w"]},
+        { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
+        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "Y" ] },
+        { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
+        { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
     ],
-    "vim.handleKeys": {
-        // "<C-f>": false,
-        // "<C-i>": false,
-        // "<C-w>": false,
-        // "<C-b>": false,
-        // "<C-p>": false,
-        "<C-u>": true,
-        "<C-d>": true
-    },
     // To improve performance
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
