@@ -22,11 +22,3 @@ set code_path (which code)
 if test -x $code_path
     fish_add_path -g (dirname "$code_path")
 end
-
-# FIXME: remove once https://github.com/helix-editor/helix/issues/10089 is fixed
-# resets terminal cursor shape on exit
-# doesn't work when helix is invoked through other commands, i.e. git
-function hx
-    command hx $argv
-    printf '\033[5 q'
-end
