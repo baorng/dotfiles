@@ -1,36 +1,5 @@
 // Place your key bindings in this file to override the defaults
 [
-    // Ctrl-P/N shortcuts
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.quickOpenSelectNext",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "showPrevParameterHint",
-        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "showNextParameterHint",
-        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "selectPrevSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
-    },
     // Navigating within a group
     {
         "key": "alt+e",
@@ -50,11 +19,11 @@
     },
     // Navigating between groups
     {
-        "key": "ctrl+h",
+        "key": "ctrl+k ctrl+h",
         "command": "workbench.action.navigateLeft"
     },
     {
-        "key": "ctrl+l",
+        "key": "ctrl+k ctrl+l",
         "command": "workbench.action.navigateRight"
     },
     {
@@ -62,8 +31,76 @@
         "command": "workbench.action.navigateUp"
     },
     {
-        "key": "ctrl+j",
+        "key": "ctrl+k ctrl+j",
         "command": "workbench.action.navigateDown"
+    },
+    // Navigating the file explorer
+    // {
+    //     "key": "space e",
+    //     "command": "workbench.action.toggleSidebarVisibility",
+    //     "when": "filesExplorerFocus && !inputFocus"
+    // },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "f",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    // Positioning the panel/terminal
+    {
+        "key": "ctrl+alt+h",
+        "command": "workbench.action.positionPanelLeft",
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "workbench.action.positionPanelBottom",
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "workbench.action.positionPanelTop",
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.positionPanelRight",
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleMaximizedPanel",
+                "workbench.action.terminal.focus"
+            ]
+        }
     },
     // Competitive programming compile with fish abbr
     {
@@ -71,6 +108,7 @@
         "command": "runCommands",
         "args": {
             "commands": [
+                "workbench.action.files.save",
                 "workbench.action.terminal.focus",
                 {
                     "command": "workbench.action.terminal.sendSequence",
@@ -78,5 +116,5 @@
                 },
             ]
         },
-    }
+    },
 ]
