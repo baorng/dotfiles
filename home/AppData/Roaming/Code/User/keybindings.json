@@ -1,37 +1,20 @@
 // Place your key bindings in this file to override the defaults
 [
-    // Navigating within a group
-    {
-        "key": "alt+e",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "alt+r",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "alt+shift+,",
-        "command": "workbench.action.moveEditorLeftInGroup"
-    },
-    {
-        "key": "alt+shift+.",
-        "command": "workbench.action.moveEditorRightInGroup"
-    },
     // Navigating between groups
     {
-        "key": "ctrl+k ctrl+h",
+        "key": "ctrl+alt+h",
         "command": "workbench.action.navigateLeft"
     },
     {
-        "key": "ctrl+k ctrl+l",
+        "key": "ctrl+alt+l",
         "command": "workbench.action.navigateRight"
     },
     {
-        "key": "ctrl+k ctrl+k",
+        "key": "ctrl+alt+k",
         "command": "workbench.action.navigateUp"
     },
     {
-        "key": "ctrl+k ctrl+j",
+        "key": "ctrl+alt+j",
         "command": "workbench.action.navigateDown"
     },
     // Navigating the file explorer
@@ -77,19 +60,19 @@
     },
     // Positioning the panel/terminal
     {
-        "key": "ctrl+alt+h",
+        "key": "ctrl+k ctrl+h",
         "command": "workbench.action.positionPanelLeft",
     },
     {
-        "key": "ctrl+alt+j",
+        "key": "ctrl+k ctrl+j",
         "command": "workbench.action.positionPanelBottom",
     },
     {
-        "key": "ctrl+alt+k",
+        "key": "ctrl+k ctrl+k",
         "command": "workbench.action.positionPanelTop",
     },
     {
-        "key": "ctrl+alt+l",
+        "key": "ctrl+k ctrl+l",
         "command": "workbench.action.positionPanelRight",
     },
     {

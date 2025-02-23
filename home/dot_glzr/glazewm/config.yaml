@@ -179,6 +179,16 @@ window_rules:
       - window_process: { regex: "msedge" }
         window_title: { regex: ".*\\[InPrivate\\].*" }
   
+  - commands: ["move --workspace 1"]
+    match:
+      - window_process: { regex: "zen" }
+        window_title: { regex: "Zen Browser"}
+
+  - commands: ["move --workspace 2"]
+    match:
+      - window_process: { regex: "zen" }
+        window_title: { regex: "Zen Browser Private Browsing" }
+
   - commands: ["move --workspace 3"]
     match:
       - window_process: { regex: "Code" }
@@ -189,7 +199,7 @@ window_rules:
   
   - commands: ["move --workspace 0"]
     match:
-      - window_process: { regex: "Discord|Vesktop|Telegram" }
+      - window_process: { regex: "Discord|Telegram" }
     
   - commands: ['ignore']
     match:

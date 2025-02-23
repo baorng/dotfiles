@@ -11,6 +11,7 @@
     ],
     "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code'",
     "editor.fontWeight": 350,
+    "editor.smoothScrolling": true,
     "workbench.startupEditor": "none",
     "workbench.colorCustomizations": {
         "statusBarItem.remoteBackground": "#181818",
@@ -50,7 +51,6 @@
         "markdown": false,
         "scminput": false
     },
-    "git.blame.editorDecoration.enabled": true,
     "notebook.inlineValues": true,
 
     "vim.easymotion": true,
@@ -76,23 +76,20 @@
         // Other better defaults from Helix
         { "before": [ "U" ], "after": [ "C-r" ] },
 
-        // Navigating tabs
-        // { "before": [ "E" ], "commands": [ ":tabprev" ], "silent": true },
-        // { "before": [ "R" ], "commands": [ ":tabnext" ], "silent": true },
-
         // JK remap
         // { "before": [ "K" ], "commands": [ "lineBreakInsert" ], "silent": true },
 
         // Misc
         { "before": [ "<CR>" ], "after": [ "o", "<Esc>" ] },
         // { "before": [ "<leader>", "/" ], "commands": [ ":noh" ] },
-        // { "before": [ "ctrl+p" ] , "commands": [ "workbench.action.quickOpen" ],  "silent": true },
 
         // Use system clipboard on leader yank/paste
         { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
         { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "Y" ] },
         { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
         { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
+
+        { "before": [ "+" ], "commands": [ "editor.action.formatDocument" ]},
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w"]},
