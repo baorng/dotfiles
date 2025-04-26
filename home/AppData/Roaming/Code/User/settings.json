@@ -12,6 +12,7 @@
     "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code'",
     "editor.fontWeight": 350,
     "editor.smoothScrolling": true,
+    // "terminal.integrated.smoothScrolling": true,
     "workbench.startupEditor": "none",
     "workbench.colorCustomizations": {
         "statusBarItem.remoteBackground": "#181818",
@@ -51,7 +52,8 @@
         "markdown": false,
         "scminput": false
     },
-    "notebook.inlineValues": true,
+    "notebook.inlineValues": "auto",
+    "terminal.integrated.suggest.enabled": true,
 
     "vim.easymotion": true,
     // "vim.useSystemClipboard": true,

@@ -1,3 +1,8 @@
+# Custom prompt function to show path above the cursor
+function prompt {
+    "$PWD`nPS> "
+}
+
 #region env set
 $Env:XDG_CONFIG_HOME = "$HOME\.config"
 $Env:EDITOR = "hx"
