@@ -10,7 +10,8 @@
         {
             "command": "toggleFocusMode",
             "id": "User.toggleFocusMode"
-        }
+        },
+        { "command": { "action": "globalSummon" }, "id": "User.GlobalSummon" }
     ],
     "aiConfig": 
     {
@@ -40,6 +41,10 @@
         {
             "id": "User.toggleFocusMode",
             "keys": "ctrl+`"
+        },
+        {
+            "id": "User.GlobalSummon",
+            "keys": "win+`"
         }
     ],
     "launchMode": "focus",
@@ -74,12 +79,6 @@
                 "guid": "{6f32c06c-e491-53b3-8c59-f9bd5f817456}",
                 "hidden": false,
                 "name": "Ubuntu-main",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
-                "hidden": false,
-                "name": "openSUSE-Tumbleweed",
                 "source": "Windows.Terminal.Wsl"
             },
             {
