@@ -9,17 +9,17 @@ if type -q eza
     abbr -a las 'eza -lah --group-directories-first --icons --git --total-size'
 end
 
-if type -q nvim
-    abbr -a vim nvim
-end
+# if type -q nvim
+#     abbr -a vim nvim
+# end
 
-abbr -a gs 'git status'
-abbr -a gd 'git diff'
-abbr -a ga 'git add'
-abbr -a gc 'git commit'
-abbr -a gb 'git branch'
-abbr -a gco 'git checkout'
-abbr -a gr 'git rev-parse --show-toplevel'
+# abbr -a gs 'git status'
+# abbr -a gd 'git diff'
+# abbr -a ga 'git add'
+# abbr -a gc 'git commit'
+# abbr -a gb 'git branch'
+# abbr -a gco 'git checkout'
+# abbr -a gr 'git rev-parse --show-toplevel'
 
 # Competitive programming abbreviations
 # g++-11 compiles pre-compiled stdc++.h the fastest
