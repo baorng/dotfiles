@@ -42,6 +42,8 @@ function y {
 #endregion
 
 #region zoxide initalize
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+if (Get-Command -Name zoxide -ErrorAction SilentlyContinue) {
+    Invoke-Expression (& { (zoxide init powershell | Out-String) })
+}
 #endregion
 
