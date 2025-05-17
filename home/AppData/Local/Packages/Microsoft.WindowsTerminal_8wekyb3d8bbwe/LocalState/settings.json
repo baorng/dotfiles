@@ -28,6 +28,10 @@
         {
             "id": "User.toggleFocusMode",
             "keys": "ctrl+`"
+        },
+        {
+            "id": null,
+            "keys": "win+sc(41)"
         }
     ],
     "launchMode": "focus",

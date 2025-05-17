@@ -87,7 +87,8 @@
 
         // Use system clipboard on leader yank/paste
         { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
-        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "Y" ] },
+        { "before": [ "Y" ], "after": [ "y", "$" ] },
+        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "y", "$" ] },
         { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
         { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
 
@@ -96,7 +97,8 @@
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w"]},
         { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
-        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "Y" ] },
+        { "before": [ "Y" ], "after": [ "y", "$" ] },
+        { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "y", "$" ] },
         { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
         { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
     ],
