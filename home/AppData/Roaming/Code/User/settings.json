@@ -53,7 +53,6 @@
         "scminput": false
     },
     "notebook.inlineValues": "auto",
-    "terminal.integrated.suggest.enabled": true,
 
     "vim.easymotion": true,
     // "vim.useSystemClipboard": true,
@@ -78,8 +77,12 @@
         // Other better defaults from Helix
         { "before": [ "U" ], "after": [ "C-r" ] },
 
-        // JK remap
+        // HJKL remap
         // { "before": [ "K" ], "commands": [ "lineBreakInsert" ], "silent": true },
+        { "before": [ "H" ], "after": [ "^" ] },
+        { "before": [ "L" ], "after": [ "$" ] },
+        { "before": [ "J" ], "after": [ "5", "j" ] }, // losing line joining, can remap to leader j if needed
+        { "before": [ "K" ], "after": [ "5", "k" ] },
 
         // Misc
         { "before": [ "<CR>" ], "after": [ "o", "<Esc>" ] },
@@ -92,10 +95,17 @@
         { "before": [ "<leader>", "p" ], "after": [ "\"", "+", "p" ] },
         { "before": [ "<leader>", "P" ], "after": [ "\"", "+", "P" ] },
 
+
         { "before": [ "+" ], "commands": [ "editor.action.formatDocument" ]},
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w"]},
+
+        { "before": [ "H" ], "after": [ "^" ] },
+        { "before": [ "L" ], "after": [ "$" ] },
+        { "before": [ "J" ], "after": [ "5", "j" ] }, 
+        { "before": [ "K" ], "after": [ "5", "k" ] },
+
         { "before": [ "<leader>", "y" ], "after": [ "\"", "+", "y" ] },
         { "before": [ "Y" ], "after": [ "y", "$" ] },
         { "before": [ "<leader>", "Y" ], "after": [ "\"", "+", "y", "$" ] },
