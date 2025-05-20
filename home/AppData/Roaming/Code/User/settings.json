@@ -68,8 +68,12 @@
         // "<C-b>": false,
         // "<C-p>": false,
         "<C-u>": true,
-        "<C-d>": true
+        "<C-d>": true,
+        "<C-l>": true
     },
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { "before": [ "C-l" ], "after": [ "<del>" ] }
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         // Jump to a two-character label like in Helix
         { "before": [ "g", "w" ], "after": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ]},
