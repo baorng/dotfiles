@@ -18,7 +18,8 @@
   use AltGr in your keyboard, you will likely want to follow the simple.kbd
   file while unmapping lctl and ralt from defsrc.
   |#
-  process-unmapped-keys yes
+  ;; Set to 'no' to improve compatibility with Vietnamese IME (EVKey)
+  process-unmapped-keys no
   concurrent-tap-hold yes
 )
 

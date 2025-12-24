@@ -134,18 +134,18 @@
         }
     },
     // Competitive programming compile with fish abbr
-    {
-        "key": "alt+b",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "workbench.action.files.save",
-                "workbench.action.terminal.focus",
-                {
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": { "text": "c '${file}'\n" },
-                },
-            ]
-        },
-    },
+    // {
+    //     "key": "alt+b",
+    //     "command": "runCommands",
+    //     "args": {
+    //         "commands": [
+    //             "workbench.action.files.save",
+    //             "workbench.action.terminal.focus",
+    //             {
+    //                 "command": "workbench.action.terminal.sendSequence",
+    //                 "args": { "text": "c '${file}'\n" },
+    //             },
+    //         ]
+    //     },
+    // },
 ]

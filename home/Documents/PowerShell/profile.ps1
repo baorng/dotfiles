@@ -3,6 +3,9 @@ function prompt {
     "$PWD`nPS> "
 }
 
+# Emacs shell keybindings
+Set-PSReadLineOption -EditMode Emacs
+
 #region env set
 $Env:XDG_CONFIG_HOME = "$HOME\.config"
 $Env:EDITOR = "hx"
