@@ -11,8 +11,8 @@ end
 # set -gx EDITOR nvim
 # set -gx VISUAL code
 # set -gx VISUAL nvim
-set -gx EDITOR hx
-set -gx VISUAL hx
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 # Paths
 fish_add_path -g ~/.local/bin

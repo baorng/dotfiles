@@ -1,18 +1,18 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "c", "p" ]
 run  = [ '''
     shell 'cat "$@" | clip.exe'
 ''']
 desc = "Copy file content (WSL)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "R"
 run  = [ '''
     shell 'explorer.exe /select, "$(wslpath -w "$1")" || true'
 ''']
 desc = "Reveal hovered file (WSL)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "!"
 run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
