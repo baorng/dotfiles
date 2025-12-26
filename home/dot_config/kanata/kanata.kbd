@@ -21,6 +21,9 @@
   ;; Set to 'no' to improve compatibility with Vietnamese IME (EVKey)
   process-unmapped-keys no
   concurrent-tap-hold yes
+  macos-dev-names-exclude (
+    "ATK X1 ULTRA"
+  )
 )
 
 ;; Only one defsrc is allowed.
