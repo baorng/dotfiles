@@ -1,9 +1,9 @@
 [[mgr.prepend_keymap]]
 on   = [ "c", "p" ]
 run  = [ '''
-    shell 'cat "$@" | clip.exe'
+    plugin copy-file-contents
 ''']
-desc = "Copy file content (WSL)"
+desc = "Copy the file content"
 
 [[mgr.prepend_keymap]]
 on   = "R"
