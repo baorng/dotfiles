@@ -15,4 +15,3 @@ Documents
 {{- end }}
 
 .config/fish/config.fish
-.config/fish/fish_variables

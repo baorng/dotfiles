@@ -5,3 +5,4 @@ background-opacity = 0.85
 # The "Frosting" Effect (strength in pixels)
 background-blur-radius = 40
 
+macos-option-as-alt = true
