@@ -1,4 +1,5 @@
 sourceDir = {{ .chezmoi.config.sourceDir | quote }}
+umask = 0o077
 
 {{ if eq .chezmoi.os "windows" -}}
 [cd]

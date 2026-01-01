@@ -7,6 +7,7 @@ Documents
 {{- if ne .chezmoi.os "darwin" }}
 .config/aerospace
 .config/sketchybar
+Library
 {{- end }}
 
 {{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
