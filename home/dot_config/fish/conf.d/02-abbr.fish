@@ -16,7 +16,7 @@ end
 # Git abbreviations
 # Core
 abbr -a gs 'git status'
-abbr -a gl 'git log --oneline --decorate --graph'
+abbr -a gl "git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)'"
 abbr -a gd 'git diff'
 
 # Stage / unstage
