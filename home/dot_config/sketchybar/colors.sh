@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Color Palette
+export WHITE=0xffffffff
+export GREY=0xffaaaaaa
+export BLACK=0xff000000
+export BLUE=0xff89b4fa
+export RED=0xffed8796
+export MAUVE=0xffcba6f7
+
+# General Bar Colors
+export BAR_COLOR=0x40000000
+export BAR_BORDER_COLOR=$MAUVE
+
+# Item Colors
+export ICON_COLOR=$WHITE
+export LABEL_COLOR=$WHITE
+export BACKGROUND_1=0x603c3e4f
+export BACKGROUND_2=0x60494d64
+
+# Workspace Colors
+export WORKSPACE_FOCUSED_ICON=$MAUVE
+export WORKSPACE_FOCUSED_LABEL=$MAUVE
+export WORKSPACE_FOCUSED_BG=0x60cba6f7
+
+export WORKSPACE_VISIBLE_ICON=$WHITE
+export WORKSPACE_VISIBLE_LABEL=$WHITE
+export WORKSPACE_VISIBLE_BG=0x30ffffff
+
+export WORKSPACE_HIDDEN_ICON=$GREY
+export WORKSPACE_HIDDEN_LABEL=$GREY
+export WORKSPACE_HIDDEN_BG=0x00000000 # Transparent/Off
