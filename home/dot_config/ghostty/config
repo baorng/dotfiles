@@ -1,10 +1,6 @@
+background = #006080
+background-opacity = 0.2
+background-blur = macos-glass-regular
 macos-titlebar-style = hidden
-# Base Transparency (0.0 to 1.0)
-background-opacity = 0.85
-
-# The "Frosting" Effect (strength in pixels)
-background-blur-radius = 40
-
 macos-option-as-alt = true
-
 font-size = 14
