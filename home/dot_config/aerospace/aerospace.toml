@@ -88,7 +88,7 @@ on-mode-changed = []
 
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'ghostty|terminal' # Change to 'com.googlecode.iterm2' or 'com.mitchellh.ghostty' if you use those
+if.app-name-regex-substring = 'ghostty|terminal'
 run = 'move-node-to-workspace '
 
 [[on-window-detected]]
@@ -96,7 +96,19 @@ if.app-name-regex-substring = 'zen'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'mail'
+if.app-name-regex-substring = 'claude'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'obsidian'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'todoist'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
