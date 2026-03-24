@@ -203,6 +203,9 @@ run = 'move-node-to-workspace 0'
     # Quit Aerospace
     alt-shift-e = 'exec-and-forget /bin/bash -c "(sleep 0.1; pkill sketchybar; pkill borders; pkill AeroSpace) &"'
 
+    # Sleep
+    alt-x = 'exec-and-forget /bin/bash -c "sleep 0.5; pmset sleepnow"'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
