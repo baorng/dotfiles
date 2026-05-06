@@ -258,6 +258,9 @@ keybindings:
   - commands: ['wm-toggle-pause']
     bindings: ['alt+shift+p']
 
+  - commands: ['shell-exec /usr/bin/perl -esleep(1);exec(q(/usr/bin/pmset),q(sleepnow))']
+    bindings: ['alt+x']
+
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ['toggle-tiling-direction']
