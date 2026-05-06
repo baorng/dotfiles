@@ -55,3 +55,4 @@ link_path() {
 }
 
 link_path ".glzr"
+link_path ".config/yazi"

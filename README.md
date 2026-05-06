@@ -20,3 +20,4 @@ Live symlink-managed config source.
 | Source | Link |
 |---|---|
 | `home/.glzr` | `~/.glzr` |
+| `home/.config/yazi` | `~/.config/yazi` |
