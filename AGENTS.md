@@ -1,5 +1,3 @@
-Guidance for agents working in this dotfiles repo.
-
 ## Scope
 
 This repo is `~/src/dotfiles`. It manages live dotfiles by symlinking paths from `home/` into `$HOME` with the `install` script.
