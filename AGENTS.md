@@ -12,7 +12,4 @@ This repo is `~/src/dotfiles`. It manages live dotfiles by symlinking paths from
 - Do not commit secrets, tokens, machine-local logs, `node_modules`, caches, or generated runtime state.
 - Before deleting or replacing live paths, verify what is symlinked and preserve backups when needed.
 - After changes, verify `~/<path>` points to `~/src/dotfiles/home/<path>` and check `git status`.
-
-## Current managed paths
-
-- `~/.glzr` → `~/src/dotfiles/home/.glzr`
+- When managed paths change, update `README.md`; do not duplicate the managed path inventory here.
