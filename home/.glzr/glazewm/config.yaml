@@ -155,6 +155,18 @@ window_rules:
     match:
       - window_process: { regex: "Claude|Codex" }
 
+  - commands: ["move --workspace 3"]
+    match:
+      - window_process: { regex: "^(Antigravity|Code|Visual Studio Code)$" }
+
+  - commands: ["move --workspace 4"]
+    match:
+      - window_process: { regex: "Obsidian" }
+
+  - commands: ["move --workspace 5"]
+    match:
+      - window_process: { regex: "Todoist" }
+
   - commands: ["move --workspace 9"]
     match:
       - window_process: { regex: "Mail" }
