@@ -17,4 +17,6 @@ Live symlink-managed config source.
 
 ## Managed paths
 
-- `home/.glzr` is linked as `~/.glzr`.
+| Source | Link |
+|---|---|
+| `home/.glzr` | `~/.glzr` |
