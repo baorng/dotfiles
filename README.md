@@ -19,6 +19,7 @@ Live symlink-managed config source.
 
 | Source | Link |
 |---|---|
-| `home/.glzr` | `~/.glzr` |
+| `home/.config/fish` | `~/.config/fish` |
 | `home/.config/ghostty` | `~/.config/ghostty` |
 | `home/.config/yazi` | `~/.config/yazi` |
+| `home/.glzr` | `~/.glzr` |

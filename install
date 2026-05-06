@@ -54,6 +54,7 @@ link_path() {
   say "Linked: $dest -> $src"
 }
 
-link_path ".glzr"
+link_path ".config/fish"
 link_path ".config/ghostty"
 link_path ".config/yazi"
+link_path ".glzr"

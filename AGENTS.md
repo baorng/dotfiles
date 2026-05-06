@@ -13,4 +13,4 @@ This repo manages live dotfiles by symlinking paths from `home/` into `$HOME` wi
 - Do not commit secrets, tokens, machine-local logs, `node_modules`, caches, or generated runtime state.
 - Before deleting or replacing live paths, verify what is symlinked and preserve backups when needed.
 - After changes, verify each managed `$HOME` path points to the corresponding path under `home/` and check `git status`.
-- When managed paths change, update `README.md`; do not duplicate the managed path inventory here.
+- When managed paths change, update `README.md`; do not duplicate the managed path inventory here. Keep paths sorted alphabetically.

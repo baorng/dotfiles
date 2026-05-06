@@ -11,3 +11,9 @@ home/.glzr/zebar/**/.idea/
 
 # Keep local backups out of git
 .backups/
+
+# Fish local/vendor state inside the symlinked config tree
+home/.config/fish/config.fish
+home/.config/fish/fish_variables
+home/.config/fish/completions/
+home/.config/fish/conf.d/rustup.fish
