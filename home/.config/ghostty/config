@@ -1,0 +1,6 @@
+background = #003040
+background-opacity = 0.5
+background-blur = macos-glass-regular
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+font-size = 15

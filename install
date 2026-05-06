@@ -55,4 +55,5 @@ link_path() {
 }
 
 link_path ".glzr"
+link_path ".config/ghostty"
 link_path ".config/yazi"

@@ -20,4 +20,5 @@ Live symlink-managed config source.
 | Source | Link |
 |---|---|
 | `home/.glzr` | `~/.glzr` |
+| `home/.config/ghostty` | `~/.config/ghostty` |
 | `home/.config/yazi` | `~/.config/yazi` |
