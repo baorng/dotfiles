@@ -17,4 +17,4 @@ Live symlink-managed config source.
 
 ## Managed paths
 
-- `~/.glzr` → `~/src/dotfiles/home/.glzr`
+- `~/.glzr` → `home/.glzr`
