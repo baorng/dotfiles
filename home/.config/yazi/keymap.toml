@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on = "o"
+run = "shell -- open %h"
+desc = "Open hovered file with macOS"
+
+[[mgr.prepend_keymap]]
+on = "R"
+run = "shell -- open -R %h"
+desc = "Reveal hovered file in Finder"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "l" ]
+run = "shell --orphan -- qlmanage -p %h"
+desc = "Quick Look hovered file"
