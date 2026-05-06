@@ -1,0 +1,212 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+:root {
+  --text-size: 13px;
+  --icon-size: 13px;
+
+  --text-color-light: rgba(0 0 0 / 95%);
+  --text-color-dark: rgba(255 255 255 / 95%);
+
+  --icon-color-light: black;
+  --icon-color-dark: white;
+
+  --background-color-light: rgba(218 218 218 / 100%);
+  --background-color-dark: rgba(32 32 32 / 100%);
+
+  --workspace-bg: rgb(255 255 255 / 5%);
+  --workspace-text: rgba(255 255 255 / 90%);
+  --workspace-bg-active: rgb(255 255 255 / 15%);
+  --workspace-bg-hover: rgb(255 255 255 / 25%);
+
+  --workspace-bg-light: rgb(0 0 0 / 5%);
+  --workspace-text-light: rgba(0 0 0 / 90%);
+  --workspace-bg-active-light: rgb(0 0 0 / 15%);
+  --workspace-bg-hover-light: rgb(0 0 0 / 25%);
+
+  --workspace-bg-dark: rgb(255 255 255 / 5%);
+  --workspace-text-dark: rgba(255 255 255 / 90%);
+  --workspace-bg-active-dark: rgb(255 255 255 / 15%);
+  --workspace-bg-hover-dark: rgb(255 255 255 / 25%);
+
+  --control-bg-light: rgb(0 0 0 / 15%);
+  --control-text-light: rgba(0 0 0 / 90%);
+  --control-bg-dark: rgb(255 255 255 / 15%);
+  --control-text-dark: rgba(255 255 255 / 90%);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: var(--text-color-light);
+  }
+
+  i {
+    color: var(--icon-color-light);
+  }
+
+  #root {
+    background: var(--background-color-light);
+  }
+
+  :root {
+    --workspace-bg: var(--workspace-bg-light);
+    --workspace-text: var(--workspace-text-light);
+    --workspace-bg-active: var(--workspace-bg-active-light);
+    --workspace-bg-hover: var(--workspace-bg-hover-light);
+
+    --control-bg: var(--control-bg-light);
+    --control-text: var(--control-text-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-color-dark);
+  }
+
+  i {
+    color: var(--icon-color-dark);
+  }
+
+  #root {
+    background: var(--background-color-dark);
+  }
+
+  :root {
+    --workspace-bg: var(--workspace-bg-dark);
+    --workspace-text: var(--workspace-text-dark);
+    --workspace-bg-active: var(--workspace-bg-active-dark);
+    --workspace-bg-hover: var(--workspace-bg-hover-dark);
+
+    --control-bg: var(--control-bg-dark);
+    --control-text: var(--control-text-dark);
+  }
+}
+
+i {
+  margin-right: 7px;
+  font-size: var(--icon-size);
+}
+
+body {
+  font-family: "SF Pro", ui-monospace, monospace;
+  font-size: var(--text-size);
+  overflow: hidden;
+}
+
+div,
+span,
+p {
+  cursor: default;
+  user-select: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  border-bottom: 1px solid rgb(255 255 255 / 5%);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+.logo,
+.workspaces,
+.binding-mode,
+.tiling-direction,
+.paused-button,
+.network,
+.memory,
+.cpu,
+.battery,
+.weather {
+  margin-right: 20px;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: var(--workspace-bg);
+  margin-right: 4px;
+  padding: 4px 8px;
+  color: var(--workspace-text);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.workspace.displayed {
+  background: var(--workspace-bg-active);
+}
+
+.workspace.focused,
+.workspace:hover {
+  font-weight: bold;
+  background: var(--workspace-bg-hover);
+}
+
+.binding-mode,
+.tiling-direction,
+.paused-button {
+  background: var(--control-bg);
+  color: var(--control-text);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+
+.cpu .high-usage {
+  color: #900029;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}

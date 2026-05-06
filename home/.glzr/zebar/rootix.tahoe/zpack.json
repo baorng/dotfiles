@@ -1,0 +1,56 @@
+{
+  "$schema": "https://github.com/glzr-io/zebar/raw/v3.3.1/resources/zpack-schema.json",
+  "name": "tahoe",
+  "version": "0.1.0",
+  "description": "A Zebar theme matching the macOS Tahoe style",
+  "tags": [
+    "macos",
+    "glazewm",
+    "theme"
+  ],
+  "previewImages": [
+    "resources/preview-dark.png",
+    "resources/preview-light.png"
+  ],
+  "repositoryUrl": "https://github.com/rootix/zebar-tahoe-theme",
+  "widgets": [
+    {
+      "name": "with-glazewm",
+      "htmlPath": "with-glazewm.html",
+      "zOrder": "bottom_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": true,
+      "transparent": false,
+      "includeFiles": [
+        "*.html",
+        "*.css"
+      ],
+      "caching": {
+        "defaultDuration": 604800,
+        "rules": []
+      },
+      "privileges": {
+        "shellCommands": []
+      },
+      "presets": [
+        {
+          "name": "default",
+          "anchor": "top_left",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "width": "100%",
+          "height": "32px",
+          "monitorSelection": {
+            "type": "all"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    }
+  ]
+}

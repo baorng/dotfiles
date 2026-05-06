@@ -1,0 +1,22 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "dependencies": {
+    "@nine-thirty-five/material-symbols-react": "^1.25.1",
+    "@solid-primitives/media": "^2.3.5",
+    "solid-js": "1.9.2",
+    "solid-primitives": "^0.0.1",
+    "tailwind": "^4.0.0",
+    "zebar": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "vite": "5.0.11",
+    "vite-plugin-solid": "2.8.2"
+  }
+}

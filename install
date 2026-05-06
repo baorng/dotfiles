@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKUP_DIR="$DOTFILES_DIR/.backups/$(date +%Y%m%d-%H%M%S)"
+DRY_RUN=0
+
+if [[ "${1:-}" == "--dry-run" ]]; then
+  DRY_RUN=1
+fi
+
+say() {
+  printf '%s\n' "$*"
+}
+
+run() {
+  if [[ "$DRY_RUN" == 1 ]]; then
+    printf '[dry-run] '
+    printf '%q ' "$@"
+    printf '\n'
+  else
+    "$@"
+  fi
+}
+
+link_path() {
+  local rel="$1"
+  local dest="$HOME/$rel"
+  local src="$DOTFILES_DIR/home/$rel"
+
+  if [[ ! -e "$src" && ! -L "$src" ]]; then
+    say "Missing source: $src"
+    exit 1
+  fi
+
+  run mkdir -p "$(dirname "$dest")"
+
+  if [[ -L "$dest" ]]; then
+    local current
+    current="$(readlink "$dest")"
+    if [[ "$current" == "$src" ]]; then
+      say "OK: $dest -> $src"
+      return
+    fi
+    say "Replacing existing symlink: $dest -> $current"
+    run rm "$dest"
+  elif [[ -e "$dest" ]]; then
+    say "Backing up existing path: $dest"
+    run mkdir -p "$BACKUP_DIR/$(dirname "$rel")"
+    run mv "$dest" "$BACKUP_DIR/$rel"
+  fi
+
+  run ln -s "$src" "$dest"
+  say "Linked: $dest -> $src"
+}
+
+link_path ".glzr"

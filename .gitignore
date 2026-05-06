@@ -1,0 +1,13 @@
+# Runtime/generated clutter inside symlinked config trees
+.DS_Store
+*.log
+
+# GlazeWM/Zebar generated or heavyweight local state
+home/.glzr/**/node_modules/
+home/.glzr/zebar/*/main/node_modules/
+home/.glzr/zebar/errors.log
+home/.glzr/glazewm/errors.log
+home/.glzr/zebar/**/.idea/
+
+# Keep local backups out of git
+.backups/
