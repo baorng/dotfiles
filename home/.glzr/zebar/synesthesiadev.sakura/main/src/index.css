@@ -178,6 +178,21 @@ svg path {
   fill: var(--accent);
 }
 
+.battery-icon path {
+  transform: none;
+}
+
+.battery-icon-shell {
+  fill: var(--accent);
+}
+
+.battery-icon-bolt {
+  fill: var(--bg-main);
+  stroke: var(--accent);
+  stroke-width: 0.4px;
+  stroke-linejoin: round;
+}
+
 .workspace-active {
   background-color: var(--workspace-bg);
   color: var(--bg-main);

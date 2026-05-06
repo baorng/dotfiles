@@ -5,6 +5,7 @@ import * as zebar from 'zebar';
 import { createPrefersDark } from "@solid-primitives/media";
 import CpuIcon from "./components/icons/CpuIcon";
 import MemoryIcon from "./components/icons/MemoryIcon";
+import BatteryIcon from "./components/icons/BatteryIcon";
 import {getWeatherName, WeatherIcon} from "./components/icons/WeatherIcon";
 import ClockIcon from "./components/icons/ClockIcon";
 import {VolumeIcon} from "./components/icons/VolumeIcon";
@@ -60,6 +61,10 @@ function App() {
 
     function checkWorkspace(workspace: any): boolean {
         return output.glazewm?.focusedWorkspace == workspace;
+    }
+
+    function formatBatteryCharge(chargePercent: number): string {
+        return Math.round(chargePercent).toString();
     }
 
     function currentMonitor(): any {
@@ -184,6 +189,16 @@ function App() {
                             <div class="debug group-container anchor-centre extra-padding">
                                 <MemoryIcon/>
                                 <p class="pad-5-lr">Memory: {output.memory.usage.toFixed()}%</p>
+                            </div>
+                        )}
+                        {output.battery && (
+                            <div class="debug group-container anchor-centre extra-padding">
+                                <BatteryIcon
+                                    chargePercent={output.battery.chargePercent}
+                                    isCharging={output.battery.isCharging}
+                                    state={output.battery.state}
+                                />
+                                <p class="pad-5-lr">Battery: {formatBatteryCharge(output.battery.chargePercent)}%</p>
                             </div>
                         )}
                     </div>
