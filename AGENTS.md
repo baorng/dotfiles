@@ -1,5 +1,3 @@
-# AGENTS.md
-
 Guidance for agents working in this dotfiles repo.
 
 ## Scope
