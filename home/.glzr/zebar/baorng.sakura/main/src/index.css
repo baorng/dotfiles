@@ -1,0 +1,165 @@
+:root {
+  --bg-main: #0d1017;
+  --text-main: #ffd4e6;
+  --accent: #ff92c2;
+  --workspace-bg: #ff92c2;
+}
+
+.light {
+  --bg-main: #ffeef4;
+  --text-main: #000000;
+  --accent: #ed81b0;
+  --workspace-bg: #ed81b0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.fill-flow {
+  display: flex;
+  gap: 0;
+}
+
+.direction-horizontal {
+  flex-direction: row;
+}
+
+.spacing-5 {
+  gap: 5px;
+}
+
+.spacing-10 {
+  gap: 10px;
+}
+
+.bar-row {
+  position: relative;
+  height: 100%;
+}
+
+.notch-dodge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.notch-dodge .center-widget {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.notch-dodge .notch-left-widget {
+  right: calc(100% - var(--notch-left) + var(--notch-margin));
+}
+
+.notch-dodge .notch-right-widget {
+  left: calc(var(--notch-right) + var(--notch-margin));
+}
+
+.anchor-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.anchor-centre-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.anchor-centre-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pad-5 {
+  padding: 5px;
+}
+
+.pad-5-lr {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.relative-x {
+  width: 100%;
+}
+
+.flex-fill {
+  flex: 1;
+}
+
+body {
+  color: var(--text-main);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  overflow: hidden;
+  line-height: 1;
+  display: block !important;
+  width: 100vw;
+}
+
+.group-container {
+  background-color: var(--bg-main);
+  border-radius: 9999px;
+  padding: 5px;
+}
+
+.extra-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.workspace-container {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.workspace-container p {
+  transform: translateY(1px);
+}
+
+svg path {
+  transform: translateY(1px);
+  fill: var(--accent);
+}
+
+.battery-icon path {
+  transform: none;
+}
+
+.battery-icon-shell {
+  fill: var(--accent);
+}
+
+.battery-icon-bolt {
+  fill: var(--bg-main);
+  stroke: var(--accent);
+  stroke-width: 0.4px;
+  stroke-linejoin: round;
+}
+
+.workspace-active {
+  background-color: var(--workspace-bg);
+  color: var(--bg-main);
+  border-radius: 100%;
+  font-size: 24px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app {
+  text-align: center;
+}

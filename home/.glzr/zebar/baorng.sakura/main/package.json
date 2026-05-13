@@ -1,0 +1,20 @@
+{
+  "name": "baorng-sakura-main",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "bun test src/lib/*.test.ts"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "svelte": "^5.55.5",
+    "zebar": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^8.0.12"
+  }
+}
