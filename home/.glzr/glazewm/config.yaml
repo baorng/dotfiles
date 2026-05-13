@@ -173,7 +173,7 @@ window_rules:
 
   - commands: ["move --workspace 0"]
     match:
-      - window_process: { regex: "Discord|Telegram" }
+      - window_process: { regex: "Discord|Telegram|Zalo|zalo" }
 
   - commands: ['ignore']
     match:
@@ -199,6 +199,10 @@ window_rules:
         window_class: { not_regex: 'OpusApp' }
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
+
+  - commands: ["move --workspace 6"]
+    match:
+      - window_process: { not_regex: "^(Ghostty|ghostty|Zen|zen|Claude|Codex|Antigravity|Code|Visual Studio Code|Obsidian|Todoist|Mail|Discord|Telegram|Zalo|zalo)$" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
