@@ -25,6 +25,7 @@ type ScreenSafeArea = {
 export type MonitorLike = {
   name?: string | null;
   deviceName?: string | null;
+  scaleFactor?: number | null;
   width?: number | null;
   height?: number | null;
   size?: {
@@ -71,6 +72,20 @@ export function batteryFillWidth(chargePercent: number): number {
 
 export function getWeatherName(weatherStatus: WeatherStatus): string {
   return WEATHER_MAP_NAME[weatherStatus];
+}
+
+export function toLogicalMonitor(monitor: MonitorLike | null | undefined): MonitorLike | undefined {
+  if (!monitor) return undefined;
+
+  const scaleFactor = Number(monitor.scaleFactor ?? 1);
+  const divisor = Number.isFinite(scaleFactor) && scaleFactor > 0 ? scaleFactor : 1;
+
+  return {
+    name: monitor.name,
+    deviceName: monitor.deviceName,
+    width: getMonitorWidth(monitor) / divisor,
+    height: getMonitorHeight(monitor) / divisor,
+  };
 }
 
 export function getNotchCssVariables(monitor: MonitorLike | undefined): string | undefined {

@@ -9,6 +9,7 @@
     "test": "bun test src/lib/*.test.ts"
   },
   "dependencies": {
+    "@tauri-apps/api": "2.0.2",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "svelte": "^5.55.5",
     "zebar": "^3.0.0"

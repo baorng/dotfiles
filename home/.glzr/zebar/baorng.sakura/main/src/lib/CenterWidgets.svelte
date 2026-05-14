@@ -1,22 +1,26 @@
 <script lang="ts">
-  import type { DateOutput, GlazeWmOutput, WeatherOutput } from "zebar";
+  import type { DateOutput, WeatherOutput } from "zebar";
   import SystemIcon from "./icons/SystemIcon.svelte";
   import WeatherIcon from "./icons/WeatherIcon.svelte";
-  import { getNotchCssVariables, getWeatherName, shouldDodgeNotch } from "./view-model";
+  import {
+    getNotchCssVariables,
+    getWeatherName,
+    type MonitorLike,
+    shouldDodgeNotch,
+  } from "./view-model";
 
   let {
     date,
-    glazewm,
+    nativeMonitor,
     weather,
   }: {
     date?: DateOutput;
-    glazewm?: GlazeWmOutput | null;
+    nativeMonitor?: MonitorLike;
     weather?: WeatherOutput;
   } = $props();
 
-  let currentMonitor = $derived(glazewm?.currentMonitor);
-  let dodgeNotch = $derived(shouldDodgeNotch(currentMonitor));
-  let notchStyle = $derived(getNotchCssVariables(currentMonitor));
+  let dodgeNotch = $derived(shouldDodgeNotch(nativeMonitor));
+  let notchStyle = $derived(getNotchCssVariables(nativeMonitor));
 </script>
 
 <div

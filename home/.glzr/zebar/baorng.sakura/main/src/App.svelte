@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { currentMonitor, getCurrentWindow } from "@tauri-apps/api/window";
   import { onMount } from "svelte";
   import CenterWidgets from "./lib/CenterWidgets.svelte";
   import { providers, type ProviderOutput } from "./lib/providers";
   import SystemStats from "./lib/SystemStats.svelte";
+  import { type MonitorLike, toLogicalMonitor } from "./lib/view-model";
   import { readCachedWeather, writeCachedWeather } from "./lib/weather-cache";
   import WorkspaceList from "./lib/WorkspaceList.svelte";
 
@@ -14,6 +16,7 @@
   );
   let glazewm = $state<ProviderOutput["glazewm"]>(providers.outputMap.glazewm);
   let memory = $state<ProviderOutput["memory"]>(providers.outputMap.memory);
+  let nativeMonitor = $state<MonitorLike>();
   let weather = $state<ProviderOutput["weather"]>(
     readCachedWeather() ?? providers.outputMap.weather,
   );
@@ -28,6 +31,20 @@
 
     updateTheme();
     mediaQuery.addEventListener("change", updateTheme);
+
+    const updateNativeMonitor = async () => {
+      try {
+        nativeMonitor = toLogicalMonitor(await currentMonitor());
+      } catch (error) {
+        console.error("Failed to read Zebar monitor:", error);
+      }
+    };
+    void updateNativeMonitor();
+
+    const tauriWindow = getCurrentWindow();
+    const unlistenMoved = tauriWindow.onMoved(updateNativeMonitor);
+    const unlistenResized = tauriWindow.onResized(updateNativeMonitor);
+
     providers.onOutput((outputMap) => {
       if (outputMap.audio !== audio) audio = outputMap.audio;
       if (outputMap.battery !== battery) battery = outputMap.battery;
@@ -43,6 +60,8 @@
 
     return () => {
       mediaQuery.removeEventListener("change", updateTheme);
+      void unlistenMoved.then((unlisten) => unlisten());
+      void unlistenResized.then((unlisten) => unlisten());
     };
   });
 </script>
@@ -55,7 +74,7 @@
       <div class="flex-fill anchor-centre-left"></div>
     {/if}
 
-    <CenterWidgets {glazewm} {weather} {date} />
+    <CenterWidgets {nativeMonitor} {weather} {date} />
     <SystemStats
       {audio}
       {cpu}

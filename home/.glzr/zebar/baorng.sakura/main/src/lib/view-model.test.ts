@@ -5,6 +5,8 @@ import {
   getNotchCssVariables,
   getWeatherName,
   isFocusedWorkspace,
+  shouldDodgeNotch,
+  toLogicalMonitor,
 } from "./view-model";
 
 describe("view model helpers", () => {
@@ -43,4 +45,16 @@ describe("view model helpers", () => {
     ).toBe("--notch-left: 663px; --notch-right: 848px; --notch-margin: 6px;");
   });
 
+  test("detects the notch from a Tauri monitor without GlazeWM", () => {
+    const monitor = toLogicalMonitor({
+      name: "Built-in Retina Display",
+      size: { width: 3024, height: 1964 },
+      scaleFactor: 2,
+    });
+
+    expect(shouldDodgeNotch(monitor)).toBe(true);
+    expect(getNotchCssVariables(monitor)).toBe(
+      "--notch-left: 663px; --notch-right: 848px; --notch-margin: 6px;",
+    );
+  });
 });
