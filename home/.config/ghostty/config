@@ -4,3 +4,4 @@ background-blur = macos-glass-regular
 macos-titlebar-style = hidden
 macos-option-as-alt = true
 font-size = 15
+copy-on-select = clipboard
