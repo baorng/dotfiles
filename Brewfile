@@ -1,5 +1,6 @@
 # Global dev toolbelt, installed by `brew bundle` during bootstrap.
 brew "fish"
+brew "yazi"
 brew "neovim"
 brew "tmux"
 brew "ripgrep"
