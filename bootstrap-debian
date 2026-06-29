@@ -5,19 +5,39 @@ set -euo pipefail
 # Derive the GitHub owner + clone URL from this repo's own origin — no hardcoding.
 SELF=$(cd "$(dirname "$0")" && pwd)
 SLUG=$(git -C "$SELF" remote get-url origin 2>/dev/null | sed -E 's#^(https://github\.com/|git@github\.com:)##; s#\.git$##') || true
-[[ -n "$SLUG" ]] || { echo "can't read git remote — run from a clone of your dotfiles repo" >&2; exit 1; }
+[[ -n "$SLUG" ]] || {
+  echo "can't read git remote — run from a clone of your dotfiles repo" >&2
+  exit 1
+}
 GH=${SLUG%%/*}
 REPO="https://github.com/$SLUG"
 
-DRY=0; [[ "${1:-}" == --dry-run ]] && { DRY=1; shift; }
+DRY=0
+[[ "${1:-}" == --dry-run ]] && {
+  DRY=1
+  shift
+}
 USER_NAME="${1:-}"
-[[ -n "$USER_NAME" ]] || { echo "usage: bootstrap-debian [--dry-run] <username>" >&2; exit 2; }
-[[ "$(id -u)" == 0 ]]  || { echo "run as root on a fresh box" >&2; exit 1; }
+[[ -n "$USER_NAME" ]] || {
+  echo "usage: bootstrap-debian [--dry-run] <username>" >&2
+  exit 2
+}
+[[ "$(id -u)" == 0 ]] || {
+  echo "run as root on a fresh box" >&2
+  exit 1
+}
 HOME_DIR="/home/$USER_NAME"
 
-say()   { printf '\n\033[1;34m:: %s\033[0m\n' "$*"; }
-run()   { if (( DRY )); then printf '[dry-run]'; printf ' %q' "$@"; echo; else "$@"; fi; }
-write() { if (( DRY )); then echo "[dry-run] write $1"; cat >/dev/null; else cat >"$1"; fi; }
+say() { printf '\n\033[1;34m:: %s\033[0m\n' "$*"; }
+run() { if ((DRY)); then
+  printf '[dry-run]'
+  printf ' %q' "$@"
+  echo
+else "$@"; fi; }
+write() { if ((DRY)); then
+  echo "[dry-run] write $1"
+  cat >/dev/null
+else cat >"$1"; fi; }
 
 say "Installing apt baseline (system + Homebrew deps)"
 run apt-get update -y
@@ -34,23 +54,27 @@ run visudo -cf /etc/sudoers.d/90-bootstrap
 
 say "Authorizing SSH key from github.com/$GH.keys"
 keys=$(curl -fsSL "https://github.com/$GH.keys") || true
-[[ -n "${keys:-}" ]] || { echo "!! no keys at github.com/$GH.keys — aborting before lockout" >&2; exit 1; }
+[[ -n "${keys:-}" ]] || {
+  echo "!! no keys at github.com/$GH.keys — aborting before lockout" >&2
+  exit 1
+}
 run install -d -m700 -o "$USER_NAME" -g "$USER_NAME" "$HOME_DIR/.ssh"
 printf '%s\n' "$keys" | write "$HOME_DIR/.ssh/authorized_keys"
 run chmod 600 "$HOME_DIR/.ssh/authorized_keys"
 run chown "$USER_NAME:$USER_NAME" "$HOME_DIR/.ssh/authorized_keys"
 
 say "Hardening: firewall, fail2ban, key-only SSH"
-port=$(sshd -T 2>/dev/null | awk '/^port /{print $2; exit}') || true; port=${port:-22}
+port=$(sshd -T 2>/dev/null | awk '/^port /{print $2; exit}') || true
+port=${port:-22}
 run ufw allow "$port"/tcp
 run ufw default deny incoming
 run ufw default allow outgoing
 run ufw --force enable
 run systemctl enable --now fail2ban
 printf 'PasswordAuthentication no\nPermitRootLogin no\n' | write /etc/ssh/sshd_config.d/00-harden.conf
-printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\n' \
-  | write /etc/apt/apt.conf.d/20auto-upgrades
-run systemctl reload ssh || true   # socket-activated sshd may have no service to reload
+printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\n' |
+  write /etc/apt/apt.conf.d/20auto-upgrades
+run systemctl reload ssh || true # socket-activated sshd may have no service to reload
 
 say "Configuring 4G swap + zswap (zstd), vm.swappiness=10"
 if ! swapon --show 2>/dev/null | grep -q .; then
@@ -58,13 +82,13 @@ if ! swapon --show 2>/dev/null | grep -q .; then
   run chmod 600 /swapfile
   run mkswap /swapfile
   run swapon /swapfile
-  grep -qxF '/swapfile none swap sw 0 0' /etc/fstab 2>/dev/null \
-    || run bash -c "printf '%s\n' '/swapfile none swap sw 0 0' >> /etc/fstab"
+  grep -qxF '/swapfile none swap sw 0 0' /etc/fstab 2>/dev/null ||
+    run bash -c "printf '%s\n' '/swapfile none swap sw 0 0' >> /etc/fstab"
 fi
 # zswap compresses swap pages in RAM (zstd) and tiers cold ones to the file.
 # sysfsutils replays /etc/sysfs.d/*.conf at boot; also enable it now.
-printf 'module/zswap/parameters/compressor = zstd\nmodule/zswap/parameters/zpool = zsmalloc\nmodule/zswap/parameters/enabled = 1\n' \
-  | write /etc/sysfs.d/zswap.conf
+printf 'module/zswap/parameters/compressor = zstd\nmodule/zswap/parameters/zpool = zsmalloc\nmodule/zswap/parameters/enabled = 1\n' |
+  write /etc/sysfs.d/zswap.conf
 run bash -c 'echo zstd > /sys/module/zswap/parameters/compressor; echo zsmalloc > /sys/module/zswap/parameters/zpool; echo 1 > /sys/module/zswap/parameters/enabled' || true
 printf 'vm.swappiness=10\n' | write /etc/sysctl.d/99-swappiness.conf
 run sysctl -p /etc/sysctl.d/99-swappiness.conf
@@ -91,4 +115,7 @@ grep -qF 'interactive-fish' ~/.bashrc 2>/dev/null || printf '%s\n' \
   'fi' >> ~/.bashrc
 EOF
 
-say "Done. In a NEW terminal: ssh $USER_NAME@<host> — confirm it works before closing this session."
+host=$(awk '{print $3}' <<<"${SSH_CONNECTION:-}")
+host=${host:-$(hostname -I 2>/dev/null | awk '{print $1}')}
+host=${host:-<host>}
+say "Done. In a NEW terminal: ssh $USER_NAME@$host — confirm it works before closing this session."
