@@ -104,12 +104,16 @@ repo="$1"
 # use and don't need Homebrew, so a later brew failure can't skip them.
 git clone "$repo" ~/src/dotfiles 2>/dev/null || git -C ~/src/dotfiles pull --ff-only
 ~/src/dotfiles/install
-# Login shell stays bash so scripts and AI agents get POSIX; interactive
-# sessions hand off to fish. Non-interactive `bash -c` never trips this guard.
+# Put Homebrew on PATH ABOVE the stock ~/.bashrc non-interactive guard, so
+# `ssh host cmd` (agents) gets the toolbelt. That guard returns early for
+# non-interactive shells, so anything appended below it would be skipped.
+grep -qF 'brew shellenv' ~/.bashrc 2>/dev/null || {
+  printf '%s\n' '[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' '' \
+    | cat - ~/.bashrc >~/.bashrc.tmp && mv ~/.bashrc.tmp ~/.bashrc
+}
+# Interactive sessions hand off to fish (appended at the bottom is fine — only
+# interactive shells get past the guard); non-interactive bash stays POSIX.
 grep -qF 'interactive-fish' ~/.bashrc 2>/dev/null || printf '%s\n' \
-  '' \
-  '# Homebrew on PATH for bash too, so scripts and AI agents get the toolbelt.' \
-  '[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' \
   '' \
   '# interactive-fish: humans get fish; scripts and AI agents stay in bash.' \
   'if [[ $- == *i* && -z ${FISH_LAUNCHED:-} ]]; then' \
