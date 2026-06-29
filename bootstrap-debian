@@ -108,6 +108,9 @@ git clone "$repo" ~/src/dotfiles 2>/dev/null || git -C ~/src/dotfiles pull --ff-
 # sessions hand off to fish. Non-interactive `bash -c` never trips this guard.
 grep -qF 'interactive-fish' ~/.bashrc 2>/dev/null || printf '%s\n' \
   '' \
+  '# Homebrew on PATH for bash too, so scripts and AI agents get the toolbelt.' \
+  '[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' \
+  '' \
   '# interactive-fish: humans get fish; scripts and AI agents stay in bash.' \
   'if [[ $- == *i* && -z ${FISH_LAUNCHED:-} ]]; then' \
   '    for _f in /home/linuxbrew/.linuxbrew/bin/fish /usr/bin/fish; do' \
