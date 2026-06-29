@@ -13,11 +13,14 @@ GH=${SLUG%%/*}
 REPO="https://github.com/$SLUG"
 
 DRY=0
-[[ "${1:-}" == --dry-run ]] && {
-  DRY=1
-  shift
-}
-USER_NAME="${1:-}"
+ARGS=()
+for a in "$@"; do
+  case "$a" in
+  --dry-run) DRY=1 ;;
+  *) ARGS+=("$a") ;;
+  esac
+done
+USER_NAME="${ARGS[0]:-}"
 [[ -n "$USER_NAME" ]] || {
   echo "usage: bootstrap-debian [--dry-run] <username>" >&2
   exit 2
@@ -97,11 +100,9 @@ say "Installing Homebrew + Brewfile + dotfiles (as $USER_NAME)"
 run sudo -iu "$USER_NAME" bash -s "$REPO" <<'EOF'
 set -euo pipefail
 repo="$1"
-[ -x /home/linuxbrew/.linuxbrew/bin/brew ] \
-  || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Clone, link configs, and wire the shell FIRST — these matter most for daily
+# use and don't need Homebrew, so a later brew failure can't skip them.
 git clone "$repo" ~/src/dotfiles 2>/dev/null || git -C ~/src/dotfiles pull --ff-only
-brew bundle --file ~/src/dotfiles/Brewfile
 ~/src/dotfiles/install
 # Login shell stays bash so scripts and AI agents get POSIX; interactive
 # sessions hand off to fish. Non-interactive `bash -c` never trips this guard.
@@ -113,6 +114,12 @@ grep -qF 'interactive-fish' ~/.bashrc 2>/dev/null || printf '%s\n' \
   '        [ -x "$_f" ] && { export FISH_LAUNCHED=1; exec "$_f"; }' \
   '    done' \
   'fi' >> ~/.bashrc
+# Homebrew + toolbelt LAST (best-effort; a failed formula won't break the shell).
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ] \
+  || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  brew bundle --file ~/src/dotfiles/Brewfile || echo "!! some Brewfile formulae failed; finish later with: brew bundle --file ~/src/dotfiles/Brewfile"
+fi
 EOF
 
 host=$(awk '{print $3}' <<<"${SSH_CONNECTION:-}")
