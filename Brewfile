@@ -1,0 +1,12 @@
+# Global dev toolbelt, installed by `brew bundle` during bootstrap.
+brew "fish"
+brew "neovim"
+brew "tmux"
+brew "ripgrep"
+brew "fzf"
+brew "eza"
+brew "zoxide"
+brew "btop"
+brew "jq"
+brew "uv"
+brew "node"
